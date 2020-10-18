@@ -6,16 +6,14 @@ _install() {
 	version1=$(echo $version | sed 's/^v//')
 	local install_path=$3
 	tmpd=$(mktemp -d)
-	for sv in loki promtail logcli; do
-	    cd $tmpd
-	    f=nim-${version1}-linux_x64.tar.xz
-		source_path="https://nim-lang.org/download/$f"
-		curl -L $source_path -o $f
-		tar -xvJf $f
-		fn=nim-${version1}
-		mv $fn/* $install_path/
+	cd $tmpd
+	f=nim-${version1}-linux_x64.tar.xz
+	source_path="https://nim-lang.org/download/$f"
+	curl -L $source_path -o $f
+	tar -xvJf $f
+	fn=nim-${version1}
+	mv $fn/* $install_path/
 
-	done
 	rm -rf $tmpd
 }
 
