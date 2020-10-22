@@ -10,6 +10,7 @@ _install() {
 	f=nim-${version1}-linux_x64.tar.xz
 	source_path="https://nim-lang.org/download/$f"
 	curl -L $source_path -o $f
+	echo curl -L $source_path -o $f
 	tar -xvJf $f
 	fn=nim-${version1}
 	mv $fn/* $install_path/
